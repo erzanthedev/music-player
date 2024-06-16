@@ -10,6 +10,7 @@ let isPlaying = false;
 function playMusic() {
   isPlaying = true;
   playBtn.classList.replace("fa-play", "fa-pause");
+  playBtn.setAttribute("title", "Pause");
   music.play();
 }
 
@@ -17,6 +18,7 @@ function playMusic() {
 function pauseMusic() {
   isPlaying = false;
   playBtn.classList.replace("fa-pause", "fa-play");
+  playBtn.setAttribute("title", "Play");
   music.pause();
 }
 
