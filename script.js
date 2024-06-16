@@ -3,23 +3,24 @@ const prevBtn = document.getElementById("prev");
 const playBtn = document.getElementById("play");
 const nextBtn = document.getElementById("next");
 
-function toggleMusic(event) {
-  if (event.target.classList.contains("fa-play")) {
-    playMusic();
-  } else {
-    pauseMusic();
-  }
-}
+// Check if Music is playing
+let isPlaying = false;
 
+// Play Music
 function playMusic() {
-  music.play();
+  isPlaying = true;
   playBtn.classList.replace("fa-play", "fa-pause");
+  music.play();
 }
 
+// Pause Music
 function pauseMusic() {
-  music.pause();
+  isPlaying = false;
   playBtn.classList.replace("fa-pause", "fa-play");
+  music.pause();
 }
 
 // Event Listener
-playBtn.addEventListener("click", toggleMusic);
+playBtn.addEventListener("click", () =>
+  isPlaying ? pauseMusic() : playMusic(),
+);
