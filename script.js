@@ -12,54 +12,63 @@ const songs = [
     name: "anyone-justin", // Will be used for img and audio src
     displayName: "Anyone",
     artist: "Justin Bieber",
+    photoType: "jpeg",
   },
 
   {
     name: "commas-ayra", // Will be used for img and audio src
     displayName: "Commas",
     artist: "Ayra Starr",
+    photoType: "jpeg",
   },
 
   {
     name: "gojehovah-stevierizo", // Will be used for img and audio src
     displayName: "Go Jehovah",
     artist: "Stevie Rizo",
+    photoType: "jpeg",
   },
 
   {
     name: "jacinto-1", // Will be used for img and audio src
     displayName: "Electric Chill Machine",
     artist: "Jacinto Design",
+    photoType: "jpg",
   },
 
   {
     name: "jacinto-2", // Will be used for img and audio src
     displayName: "Seven Nation Army (Remix)",
     artist: "Jacinto Design",
+    photoType: "jpg",
   },
 
   {
     name: "jacinto-3", // Will be used for img and audio src
     displayName: "Goodnight, Disco Queen",
     artist: "Jacinto Design",
+    photoType: "jpg",
   },
 
   {
     name: "lovemejeje-tems", // Will be used for img and audio src
     displayName: "Love Me JeJe",
     artist: "Tems",
+    photoType: "jpeg",
   },
 
   {
     name: "madeforme-munilong", // Will be used for img and audio src
     displayName: "Made For Me",
     artist: "Muni Long",
+    photoType: "jpeg",
   },
 
   {
     name: "metric-1", // Will be used for img and audio src
     displayName: "Front Row (Remix)",
     artist: "Metric/Jacinto Design",
+    photoType: "jpg",
   },
 ];
 
@@ -86,3 +95,14 @@ function pauseMusic() {
 playBtn.addEventListener("click", () =>
   isPlaying ? pauseMusic() : playMusic(),
 );
+
+// Update DOM
+function loadSong(song) {
+  title.textContent = song.displayName;
+  artist.textContent = song.artist;
+  music.src = `music/${song.name}.mp3`;
+  image.src = `img/${song.name}.${song.photoType}`;
+}
+
+// On Load
+loadSong(songs[1]);
